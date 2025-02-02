@@ -3,25 +3,29 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-# Membaca data panduan Takakura
+# Membaca file CSV
 panduan = pd.read_csv('panduan_takakura.csv')
 
-# Menampilkan judul aplikasi
-st.title("Panduan Pengolahan Sampah Organik dengan Metode Takakura")
+# Gambar untuk mempercantik tampilan
+st.image("https://via.placeholder.com/800x400?text=Metode+Takakura", caption="Metode Takakura", use_column_width=True)
+
+# Judul aplikasi
+st.title("🌱 **Panduan Pengolahan Sampah Organik dengan Metode Takakura** 🌿")
+
+# Subjudul
+st.subheader("Ikuti langkah-langkah berikut untuk mengolah sampah organik menggunakan metode Takakura:")
 
 # Menampilkan panduan langkah demi langkah
-st.write("Ikuti langkah-langkah berikut untuk mengolah sampah organik menggunakan metode Takakura:")
-
 for index, row in panduan.iterrows():
-    st.write(f"**Langkah {row['langkah']}**: {row['deskripsi']}")
+    st.markdown(f"**Langkah {row['langkah']}**: {row['deskripsi']}")
 
-# Data suhu dan kelembaban dalam proses komposting
+# Menambahkan grafik untuk visualisasi proses komposting
+st.subheader("📈 Proses Komposting (Perubahan Suhu dan Kelembaban)")
+
 waktu = np.arange(0, 30, 1)  # 30 hari
 suhu = 60 - 0.5 * waktu  # suhu turun selama 30 hari
 kelembaban = 80 - 0.3 * waktu  # kelembaban turun selama 30 hari
 
-# Membuat grafik
 fig, ax1 = plt.subplots()
 
 ax1.set_xlabel('Hari')
@@ -37,13 +41,12 @@ ax2.tick_params(axis='y', labelcolor='tab:blue')
 fig.tight_layout()
 st.pyplot(fig)
 
-# Input jenis sampah dari pengguna
+# Menambahkan kolom untuk rekomendasi interaktif
+st.subheader("🌿 Rekomendasi Pengolahan Sampah Organik")
+
+# Pilihan interaktif untuk input pengguna
 jenis_sampah = st.selectbox("Pilih jenis sampah organik", ["Sayuran", "Buah", "Sisa Makanan"])
 
-# Input lokasi atau kondisi lainnya
-lokasi = st.selectbox("Pilih lokasi", ["Taman", "Dapur", "Luar Ruangan"])
-
-# Memberikan rekomendasi berdasarkan input
 if jenis_sampah == "Sayuran":
     st.write("Rekomendasi: Gunakan bahan kering (seperti daun kering) untuk mempercepat proses komposting.")
 elif jenis_sampah == "Buah":
@@ -51,5 +54,16 @@ elif jenis_sampah == "Buah":
 else:
     st.write("Rekomendasi: Campurkan dengan bahan kering untuk mengurangi bau dan mempercepat penguraian.")
 
+# Menggunakan kolom untuk membagi tampilan
+col1, col2 = st.columns(2)
 
+with col1:
+    st.image("https://via.placeholder.com/400x400?text=Komposting", caption="Proses Komposting", use_column_width=True)
+
+with col2:
+    st.image("https://via.placeholder.com/400x400?text=Kompos+Jadi", caption="Kompos Jadi", use_column_width=True)
+
+# Footer dengan kontak atau informasi lebih lanjut
+st.markdown("---")
+st.markdown("**Untuk informasi lebih lanjut, hubungi kami di**: [email@example.com](mailto:email@example.com)")
 
