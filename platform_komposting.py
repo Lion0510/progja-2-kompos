@@ -7,7 +7,7 @@ import numpy as np
 panduan = pd.read_csv('panduan_takakura.csv')
 
 # Gambar untuk mempercantik tampilan
-st.image("https://via.placeholder.com/800x400?text=Metode+Takakura", caption="Metode Takakura", use_column_width=True)
+st.image("https://desabanjarejo.gunungkidulkab.go.id/assets/files/artikel/sedang_1594734509Kompos%20Takakura.jpg", caption="Metode Takakura", use_column_width=True)
 
 # Judul aplikasi
 st.title("🌱 **Panduan Pengolahan Sampah Organik dengan Metode Takakura** 🌿")
