@@ -63,16 +63,4 @@ elif jenis_sampah == "Serbuk Kayu":
     st.write("✅ **Rekomendasi:** Campurkan dengan bahan hijau (seperti sisa sayuran) untuk menjaga keseimbangan karbon dan nitrogen.")
 
 
-# Menggunakan kolom untuk membagi tampilan
-col1, col2 = st.columns(2)
-
-with col1:
-    st.image("https://via.placeholder.com/400x400?text=Komposting", caption="Proses Komposting", use_column_width=True)
-
-with col2:
-    st.image("https://via.placeholder.com/400x400?text=Kompos+Jadi", caption="Kompos Jadi", use_column_width=True)
-
-# Footer dengan kontak atau informasi lebih lanjut
-st.markdown("---")
-st.markdown("**Untuk informasi lebih lanjut, hubungi kami di**: [email@example.com](mailto:email@example.com)")
 
