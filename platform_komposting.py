@@ -45,14 +45,23 @@ st.pyplot(fig)
 st.subheader("🌿 Rekomendasi Pengolahan Sampah Organik")
 
 # Pilihan interaktif untuk input pengguna
-jenis_sampah = st.selectbox("Pilih jenis sampah organik", ["Sayuran", "Buah", "Sisa Makanan"])
+jenis_sampah = st.selectbox(
+    "Pilih jenis sampah organik",
+    ["Sayuran", "Buah", "Sisa Makanan", "Daun dan Ranting Pohon", "Serbuk Kayu"]
+)
 
+# Menampilkan rekomendasi berdasarkan pilihan
 if jenis_sampah == "Sayuran":
-    st.write("Rekomendasi: Gunakan bahan kering (seperti daun kering) untuk mempercepat proses komposting.")
+    st.write("✅ **Rekomendasi:** Gunakan bahan kering (seperti daun kering) untuk mempercepat proses komposting.")
 elif jenis_sampah == "Buah":
-    st.write("Rekomendasi: Pastikan kelembaban tetap terjaga selama proses komposting.")
-else:
-    st.write("Rekomendasi: Campurkan dengan bahan kering untuk mengurangi bau dan mempercepat penguraian.")
+    st.write("✅ **Rekomendasi:** Pastikan kelembaban tetap terjaga selama proses komposting.")
+elif jenis_sampah == "Sisa Makanan":
+    st.write("✅ **Rekomendasi:** Campurkan dengan bahan kering untuk mengurangi bau dan mempercepat penguraian.")
+elif jenis_sampah == "Daun dan Ranting Pohon":
+    st.write("✅ **Rekomendasi:** Cacah atau potong kecil-kecil sebelum dikomposkan agar lebih cepat terurai.")
+elif jenis_sampah == "Serbuk Kayu":
+    st.write("✅ **Rekomendasi:** Campurkan dengan bahan hijau (seperti sisa sayuran) untuk menjaga keseimbangan karbon dan nitrogen.")
+
 
 # Menggunakan kolom untuk membagi tampilan
 col1, col2 = st.columns(2)
